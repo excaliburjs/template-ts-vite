@@ -1,4 +1,4 @@
-import { Actor, Color, vec } from "excalibur";
+import { Actor, vec } from "excalibur";
 import { Resources } from "./resources";
 
 export class Player extends Actor {

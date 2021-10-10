@@ -1,4 +1,4 @@
-import { Actor, Color, DisplayMode, Engine, Loader } from "excalibur";
+import { Engine, Loader } from "excalibur";
 import { Player } from "./player";
 import { Resources } from "./resources";
 
