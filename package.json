@@ -1,0 +1,32 @@
+{
+  "name": "template-ts-vite",
+  "version": "1.0.0",
+  "description": "Excalibur TypeScript template for Vite",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/excaliburjs/template-ts-vite.git"
+  },
+  "keywords": [
+    "excalibur",
+    "excaliburjs",
+    "vite",
+    "game-engine"
+  ],
+  "author": "Erik Onarheim",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/excaliburjs/template-ts-vite/issues"
+  },
+  "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
+  "devDependencies": {
+    "excalibur": "0.25.0",
+    "typescript": "4.4.3",
+    "vite": "2.6.4"
+  }
+}
