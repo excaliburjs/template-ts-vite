@@ -27,7 +27,7 @@
   "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
   "devDependencies": {
     "excalibur": "0.28.1",
-    "typescript": "5.2.2",
+    "typescript": "5.3.2",
     "vite": "4.5.0"
   },
   "dependencies": {
