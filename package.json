@@ -32,6 +32,6 @@
     "vite": "5.4.3"
   },
   "dependencies": {
-    "@excaliburjs/testing": "^0.25.0"
+    "@excaliburjs/testing": "^0.26.0"
   }
 }
