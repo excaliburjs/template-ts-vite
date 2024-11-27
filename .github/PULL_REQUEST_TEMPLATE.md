@@ -1,8 +1,7 @@
 <!--
 Hi, and thanks for contributing to Excalibur!
-Before you go any further, please read our contributing guide: https://github.com/excaliburjs/Excalibur/blob/master/.github/CONTRIBUTING.md
-especially the "Submitting Changes" section:
-https://github.com/excaliburjs/Excalibur/blob/master/.github/CONTRIBUTING.md#submitting-changes
+Before you go any further, please read our contributing guide: https://excaliburjs.com/contributing
+especially the "Submitting Changes" section: https://excaliburjs.com/contributing#submitting-changes
 ---
 A quick summary checklist is included below for convenience:
 -->
@@ -17,9 +16,9 @@ A quick summary checklist is included below for convenience:
 
 ==================
 
-<!-- If you're closing an issue with this pull request, or contributing a significant change, please include your changes in the appropriate section of CHANGELOG.md as outlined in https://github.com/excaliburjs/Excalibur/blob/master/.github/CONTRIBUTING.md#creating-a-pull-request. -->
+<!-- If you're closing an issue with this pull request, or contributing a significant change, please include your changes in the appropriate section of CHANGELOG.md as outlined in https://excaliburjs.com/contributing#submitting-changes#creating-a-pull-request. -->
 
-<!--Please format your pull request title according to our commit message styleguide: https://github.com/excaliburjs/Excalibur/blob/master/.github/CONTRIBUTING.md#commit-messages -->
+<!--Please format your pull request title according to our commit message style guide: https://excaliburjs.com/contributing#submitting-changes#commit-messages -->
 
 <!-- Thanks again! -->
 

@@ -1,14 +1,15 @@
 {
   "name": "template-ts-vite",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Excalibur TypeScript template for Vite",
-  "main": "index.js",
+  "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "test": "npm run build && ex-test -d ./dist -t ./test/test.js"
+    "test": "npm run build && npx playwright test",
+    "test:integration-update": "npx playwright test --update-snapshots"
   },
   "repository": {
     "type": "git",
@@ -27,9 +28,11 @@
   },
   "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
   "devDependencies": {
-    "excalibur": "0.29.3",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "excalibur": "0.30.0-alpha.1267",
     "typescript": "5.7.2",
-    "vite": "5.4.11"
+    "vite": "6.0.1"
   },
   "dependencies": {
     "@excaliburjs/testing": "^0.26.0"

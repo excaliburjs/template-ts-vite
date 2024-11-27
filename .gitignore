@@ -5,3 +5,7 @@ dist-ssr
 *.local
 test/images/actual.png
 test/images/diff-*.png
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
