@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
   "dependencies": {
-    "excalibur": "0.30.0-alpha.1274"
+    "excalibur": "0.30.0-alpha.1275"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
