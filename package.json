@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
   "dependencies": {
-    "excalibur": "0.30.0-alpha.1295"
+    "excalibur": "0.30.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.49.0",
-    "@types/node": "^22.10.0",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
     "typescript": "5.7.2",
     "vite": "6.0.5"
   }
