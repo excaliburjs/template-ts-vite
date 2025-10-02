@@ -33,7 +33,7 @@
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "vite": "6.3.6"
   }
 }
