@@ -1,22 +1,31 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+/**
+ * Port the built game is previewed on.
+ *
+ * Env-driven so several checkouts (or several templates) can run their suites side by side.
+ * With a hardcoded port, `reuseExistingServer` will happily attach to whatever is already
+ * listening and screenshot somebody else's app. `--strictPort` makes a clash fail loudly
+ * instead of silently sliding to the next free port.
+ *
+ * CI leaves EX_E2E_PORT unset and gets Vite's default preview port.
+ */
+const port = Number(process.env.EX_E2E_PORT ?? 4173);
+const baseURL = `http://localhost:${port}`;
+
 export default defineConfig({
   testDir: './tests',
   webServer: {
-    command: 'npm run serve',
+    // Deliberately previewing the *built* output rather than running a dev server: verifying
+    // that the production build pipeline still produces a working game is the whole point of a
+    // template. `npm test` runs the build first.
+    command: `npm run serve -- --port ${port} --strictPort`,
     timeout: 240 * 1000, // linux takes a long time
-    url: 'http://localhost:4173',
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'pipe',
@@ -34,7 +43,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    baseURL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -51,6 +60,9 @@ export default defineConfig({
         }
       },
     },
+
+    // Snapshot baselines are committed for chromium/linux only (that is what CI runs).
+    // Enabling another browser or platform means regenerating baselines for it.
 
     // {
     //   name: 'firefox',
@@ -82,11 +94,4 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
