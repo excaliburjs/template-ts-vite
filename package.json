@@ -8,8 +8,9 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "test": "npm run build && npx playwright test",
-    "test:integration-update": "npx playwright test --update-snapshots"
+    "test": "npm run build && playwright test",
+    "test:integration-update": "npm run build && playwright test --update-snapshots=all",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,10 @@
   },
   "homepage": "https://github.com/excaliburjs/template-ts-vite#readme",
   "dependencies": {
-    "excalibur": "0.32.0"
+    "excalibur": "0.33.0-alpha.224"
   },
   "devDependencies": {
-    "@playwright/test": "^1.49.1",
+    "@playwright/test": "1.63.0",
     "@types/node": "^22.10.2",
     "typescript": "5.9.3",
     "vite": "6.4.3"

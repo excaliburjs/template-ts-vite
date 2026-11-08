@@ -17,12 +17,33 @@ jobs:
       with:
         node-version: 'lts/*'
     - run: npm ci
+    # Type-check before the expensive browser install: this gate is what catches
+    # v1 API removals and options-bag typos (e.g. moveBy durationMs) that the
+    # bundler would otherwise transpile away silently.
+    - name: Type check
+      run: npm run typecheck
+    # The committed snapshot baselines are `-chromium-linux`, so CI must render the way the
+    # baselines were generated: a virtual X display plus the same font set. Playwright's
+    # --with-deps covers most of this, but pin the pieces the snapshots actually depend on.
+    - name: Install rendering dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb fonts-liberation fonts-noto-core
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - run: npm test
+    # xvfb-run gives Chromium a real DISPLAY, which keeps GPU/ANGLE behaviour consistent with
+    # how the baselines were produced.
+    - run: xvfb-run -a npm test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
         path: playwright-report/
+        retention-days: 30
+    # On a snapshot mismatch the report alone is hard to read - the actual/diff PNGs live here.
+    - uses: actions/upload-artifact@v4
+      if: ${{ failure() }}
+      with:
+        name: playwright-test-results
+        path: test-results/
         retention-days: 30
