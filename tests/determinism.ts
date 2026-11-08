@@ -70,7 +70,7 @@ const INSTALL_DETERMINISM_HOOKS = `
   var engine;
   function freeze(e) {
     if (!e || !e.clock || e.clock.__exFrozen) return;
-    if (e.clock.isRunning()) {
+    if (e.clock.isRunning) {
       e.clock.stop();
     }
     e.clock.__exFrozen = true;
