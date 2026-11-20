@@ -34,14 +34,14 @@ jobs:
     # xvfb-run gives Chromium a real DISPLAY, which keeps GPU/ANGLE behaviour consistent with
     # how the baselines were produced.
     - run: xvfb-run -a npm test
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
     # On a snapshot mismatch the report alone is hard to read - the actual/diff PNGs live here.
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: ${{ failure() }}
       with:
         name: playwright-test-results
